@@ -5,12 +5,11 @@
 import math
 
 #### Financial Calculator Instructions for the user ####
-print()
-print("Financial Calculator")
-print("*****")
-print("There are two uses for this calculator:\n")
-print("investment - to calculate the amount of interest you'll earn on your investment")
-print("bond - to calculate the amount you'll have to pay on a home loan\n")
+print("""\nFinancial Calculator
+*****
+There are two uses for this calculator:
+investment - to calculate the amount of interest you'll earn on your investment
+bond - to calculate the amount you'll have to pay on a home loan\n""")
 
 # User selects either 'investment' or 'bond' (any capitalisation will work)
 while True:
@@ -29,18 +28,16 @@ while True:
          # Simple Interest Calculation
          if interest == "simple":
             investment_returns = money_deposited*(1 + ((interest_rate/100)*num_years))   # A = P * (1 + r*t)
-            print("Investment Returns: " + "£" + str(round(investment_returns, 2)))
-            print()
+            print("Investment Returns: " + "£" + str(round(investment_returns, 2)) + "\n")
             break
                   # Compound Interest Calculation
          elif interest == "compound":
             investment_returns = money_deposited * math.pow((1+(interest_rate/100)), num_years)  # A = P * math.pow((1+r),t)
-            print("Investment Returns: " + "£" + str(round(investment_returns, 2)))
-            print()
+            print("Investment Returns: " + "£" + str(round(investment_returns, 2)) + "\n")
             break
          # If anything but simple or compound are entered by the user:
          else:
-            print("There was an error with your input, please try again.")
+            print("There was an error with your input, please try again.\n")
             continue
       break
 
@@ -51,10 +48,9 @@ while True:
       repay_months = int(input("What is the number of months you plan to take to repay the bond?: "))
       monthly_interest = (interest_rate/100)/12
       repayment = (monthly_interest*house_value)/(1-((1 + monthly_interest)**(-1 * repay_months)))    # repayment = (i*P)/(1-((1+i)**(-n)))
-      print("Monthly Repayments: " + "£" + str(round(repayment, 2)))
-      print()
+      print("Monthly Repayments: " + "£" + str(round(repayment, 2)) + "\n")
       break
 
    else:
-      print("There was an error with your input, please try again.")
+      print("There was an error with your input, please try again.\n")
       continue
